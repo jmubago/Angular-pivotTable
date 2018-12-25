@@ -1,0 +1,30 @@
+<div class="w-500 mat-elevation-z1">
+    <mat-toolbar class="mat-accent m-0">
+      <mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <span class="title dialog-title">Crear un nuevo informe</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div mat-dialog-content class="informe p-24" fxLayout="column">
+      <mat-form-field>
+        <input matInput placeholder="Título" [(ngModel)]="data.Name" required>
+        <mat-error *ngIf="titulo.hasError('required')">Introduce un título</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Descripción" [(ngModel)]="data.Description" required>
+        <mat-error *ngIf="descripcion.hasError('required')">Introduce una descripción</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Visibilidad" [(ngModel)]="data.Creator" required>
+          <mat-option value="all">Para todos</mat-option>
+          <mat-option value="{{data.Creator}}">Solo para mi</mat-option>
+        </mat-select>
+        <mat-error *ngIf="visibilidad.hasError('required')">Selecciona una opción</mat-error>
+      </mat-form-field>
+      <mat-checkbox class="p-8" [(ngModel)]="data.IsDefault">Poner por defecto</mat-checkbox>
+    </div>
+    <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="space-between center">
+      <button mat-button mat-dialog-close color="accent" [mat-dialog-close]="data" cdkFocusInitial>Guardar</button>
+      <button mat-button mat-dialog-close (click)="onCloseClick()">Cerrar</button>
+    </div>
+  </div>
+    
