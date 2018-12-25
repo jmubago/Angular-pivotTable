@@ -1,20 +1,15 @@
 # PivotTableJsExample
 
-Why i create this repo ?
-
-==> I looked up in the internet and i can't find any angular source code using the free opensource library of pivotTableJs, so ...
+Repository for creating a Pivot Table with Angular 2+ based on @Nicolas Kruchten Pivot Table repository (https://github.com/nicolaskruchten/pivottable).
 
 ![Alt text](/screenshot_pivot_table.PNG?raw=true "Screen shot")
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
