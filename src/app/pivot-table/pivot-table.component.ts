@@ -8,8 +8,7 @@ import {
   SimpleChanges,
   OnChanges,
   Output,
-  EventEmitter,
-  ViewEncapsulation
+  EventEmitter
 } from '@angular/core';
 
 import { defaultsDeep } from 'lodash';
@@ -110,6 +109,10 @@ export class PivotTableComponent implements OnInit, AfterViewInit, OnChanges {
   /**
    * Private Methods
    */
+
+   /**
+    * Method to draw the pivot table with provided data and configuration
+    */
   private draw(): void {
     if (this.targetElement) {
       this.pivotConfig = defaultsDeep(this.config, this.defaultConfig);
@@ -117,6 +120,9 @@ export class PivotTableComponent implements OnInit, AfterViewInit, OnChanges {
     }
   }
 
+  /**
+   * Method for capturing pivot data configuration changes and emit them to the parent component
+   */
   private onPivotRefresh(): void {
     const changeConfig = this.targetElement.data('pivotUIOptions');
     this.newConfig.emit(changeConfig);
