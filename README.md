@@ -2,13 +2,11 @@
 
 Repository for creating a Pivot Table with Angular 2+ based on @Nicolas Kruchten Pivot Table repository (https://github.com/nicolaskruchten/pivottable).
 
-![Alt text](/screenshot_pivot_table.PNG?raw=true "Screen shot")
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. Changes in your files will automatically reload the app.
 
 
 ## Build
