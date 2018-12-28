@@ -16,11 +16,12 @@ export class CreateReportDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<CreateReportDialogComponent>, @Inject(MAT_DIALOG_DATA) private data: any) { }
 
-  ngOnInit(): void {
-    this.data.IsDefault = false;
-  }
+  ngOnInit(): void { }
 
 
+  /**
+   * Method for closing the dialog
+   */
   onCloseClick(): void {
     this.dialogRef.close();
   }
