@@ -2,7 +2,7 @@
 
 Repository for creating a Pivot Table with Angular 2+ based on @Nicolas Kruchten Pivot Table repository (https://github.com/nicolaskruchten/pivottable).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 
 ## Added features
 
