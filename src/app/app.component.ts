@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
-import { MatPaginator, MatTableDataSource, MatSort, MatDialog } from '@angular/material';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
 import { CreateReportDialogComponent } from './create-report-dialog/create-report-dialog.component';
 
@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
   public selectedDescription: string;
   public selectedIsDefault: boolean;
 
+  @ViewChild(CreateReportDialogComponent) report: any;
 
   constructor(public dialog: MatDialog) { }
   // constructor(public dialog: MatDialog, public snackBar: MatSnackBar) { }
@@ -32,11 +33,10 @@ export class AppComponent implements OnInit {
    * Public Methods
    */
 
-  // public changeModo(): void {
-  //   this.modo = !this.modo;
-  // }
-
-  public newInforme(): void {
+   /**
+    * Method to create a new report
+    */
+  public newReport(): void {
     const createDialog = this.dialog.open(CreateReportDialogComponent, {
       data: {
         Name: this.Name, Description: this.Description, IsDefault: this.IsDefault, Options: this.newConfig
@@ -46,5 +46,13 @@ export class AppComponent implements OnInit {
     createDialog.afterClosed().subscribe(result => {
       console.log(result);
     });
+  }
+
+  /**
+   * Method to get pivot table configuration
+   * @param e captures event from child component
+   */
+  public reportConfig(e): void {
+    this.newConfig = e;
   }
 }
