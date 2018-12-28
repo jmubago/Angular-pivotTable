@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 
 import { CreateReportDialogComponent } from './create-report-dialog/create-report-dialog.component';
 
@@ -12,7 +12,7 @@ import { CreateReportDialogComponent } from './create-report-dialog/create-repor
 
 export class AppComponent implements OnInit {
 
-  // public modo = false;
+  public mode = false;
   public Name: string;
   public Description: string;
   public IsDefault: boolean;
@@ -20,31 +20,47 @@ export class AppComponent implements OnInit {
   public selectedName: string;
   public selectedDescription: string;
   public selectedIsDefault: boolean;
+  public reportsCreated: any;
+  public selectedConfig: any;
 
   @ViewChild(CreateReportDialogComponent) report: any;
 
-  constructor(public dialog: MatDialog) { }
-  // constructor(public dialog: MatDialog, public snackBar: MatSnackBar) { }
+  constructor(public dialog: MatDialog, public snackBar: MatSnackBar) { }
 
   ngOnInit(): void { }
 
 
-   /**
-   * Public Methods
-   */
+  /**
+  * Public Methods
+  */
 
-   /**
-    * Method to create a new report
-    */
+  public changeMode(): void {
+    this.mode = !this.mode;
+  }
+
+  /**
+   * Method to create a new report
+   */
   public newReport(): void {
     const createDialog = this.dialog.open(CreateReportDialogComponent, {
       data: {
-        Name: this.Name, Description: this.Description, IsDefault: this.IsDefault, Options: this.newConfig
+        Name: this.Name, Options: this.newConfig
       }
     });
 
     createDialog.afterClosed().subscribe(result => {
-      console.log(result);
+      if (result.Name !== undefined) {
+        if (this.reportsCreated !== undefined) { // If there are reports already, add a new one
+          this.reportsCreated.push(result);
+        } else { // Initialize reportsCreated to create first report
+          this.reportsCreated = [];
+          this.reportsCreated.push(result);
+        }
+      } else {
+        this.snackBar.open('Introduce a name', '', {
+          duration: 2000,
+        });
+      }
     });
   }
 
@@ -54,5 +70,13 @@ export class AppComponent implements OnInit {
    */
   public reportConfig(e): void {
     this.newConfig = e;
+  }
+
+  /**
+   * Method for child data binding
+   * @param r report information
+   */
+  public selectReport(r): void {
+    this.selectedConfig = r.Options;
   }
 }

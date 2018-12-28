@@ -3,20 +3,20 @@
 /* uncomment line below to hide total colomn and row, and hide aggregator select and render select respectively */
 /* .pvtTotal, .pvtTotalLabel, .pvtGrandTotal , .pvtAggregator, .pvtRenderer {display: none} */
 
-// .pivot-wrapper {
-//     display: block;
-//     width: 100%;
-//     overflow: auto;
-//   }
+.pivot-wrapper {
+    display: block;
+    width: 100%;
+    overflow: auto;
+  }
   
-//   .pivot-wrapper.selected {
-//     display: block;
-//     width: 100%;
-//     overflow: auto;
+  // .pivot-wrapper.selected {
+  //   display: block;
+  //   width: 100%;
+  //   overflow: auto;
   
-//     .pvtAxisContainer,
-//     .pvtVals,
-//     .pvtRenderer {
-//       display: none;
-//     }
-//   }
+  //   .pvtAxisContainer,
+  //   .pvtVals,
+  //   .pvtRenderer {
+  //     display: none;
+  //   }
+  // }

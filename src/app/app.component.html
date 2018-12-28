@@ -1,13 +1,16 @@
-<div class="m-8" fxLayout="row" fxLayoutAlign="space-around center">
-  <button mat-raised-button color="accent" color="accent" class="post-button"
-  style="margin: 8px" aria-label="POST" (click)="newReport()">Create report
+<div fxLayout="row" fxLayoutAlign="start center">
+  <button mat-raised-button color="primary" style="margin: 8px" (click)="newReport()">Create report
   </button>
-  <button mat-raised-button color="accent" class="post-button"
-  style="margin: 8px" aria-label="POST">Edit report
+  <button mat-raised-button color="primary" style="margin: 8px">Edit report
   </button>
-  <!-- <button mat-raised-button matTooltip="Configuración" color="accent" class="post-button mx-8" aria-label="POST" (click)="changeModo()">
-    Change configuration
-  </button> -->
+  <button mat-raised-button color="primary" style="margin: 8px" (click)="changeMode()">
+    Show
+  </button>
+</div>
+<div *ngIf="reportsCreated" fxLayout="row" >
+  <div *ngFor="let report of reportsCreated">
+    <button mat-raised-button style="margin: 8px" color="accent" (click)="selectReport(report)">{{report.Name}}</button>
+  </div>
 </div>
 
-<app-pivot-table (newConfig)="reportConfig($event)"></app-pivot-table>
+<app-pivot-table [config]="selectedConfig" [show]="mode" (newConfig)="reportConfig($event)"></app-pivot-table>
