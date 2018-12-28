@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MatIconModule, 
+  MatButtonModule,
   MatToolbarModule, 
   MatInputModule,
   MatOptionModule,
@@ -8,7 +10,6 @@ import { MatIconModule,
   MatCheckboxModule,
   MatDialogModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { CreateReportDialogComponent } from './create-report-dialog/create-report-dialog.component';
@@ -21,6 +22,8 @@ import { PivotTableComponent } from './pivot-table/pivot-table.component';
     PivotTableComponent
   ],
   imports: [
+    BrowserAnimationsModule,
+    MatButtonModule,
     FormsModule,
     BrowserModule,
     MatIconModule,
@@ -29,8 +32,7 @@ import { PivotTableComponent } from './pivot-table/pivot-table.component';
     MatOptionModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatDialogModule,
-    BrowserAnimationsModule
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
