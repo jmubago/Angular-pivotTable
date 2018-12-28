@@ -36,9 +36,11 @@ export class PivotTableComponent implements OnInit, AfterViewInit, OnChanges {
     {'id': '07', 'make': 'Beneteau', 'Model': 'Barracuda', 'Length': '31', 'type': 'motor'},
     {'id': '08', 'make': 'Beneteau', 'Model': 'Antares 36', 'Length': '36', 'type': 'motor'},
     {'id': '09', 'make': 'Dehler', 'Model': '31', 'Length': '31', 'type': 'sailboat'},
-    {'id': '10', 'make': 'Dehler', 'Model': '34', 'Length': '34', 'type': 'sailboat'}];
+    {'id': '10', 'make': 'Dehler', 'Model': '34', 'Length': '34', 'type': 'sailboat'},
+    {'id': '11', 'make': 'Laser', 'Model': 'Standar', 'Length': '12', 'type': 'dinghy'},];
 
   @Input() config: any;
+  @Input() show: any;
   @Output() newConfig = new EventEmitter<any>();
 
   private el: ElementRef;

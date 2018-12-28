@@ -1,0 +1,11 @@
+.pivot-wrapper.selected {
+    display: block;
+    width: 100%;
+    overflow: auto;
+  
+    .pvtAxisContainer,
+    .pvtVals,
+    .pvtRenderer {
+      display: none;
+    }
+  }
