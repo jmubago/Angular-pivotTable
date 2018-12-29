@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 
 import { CreateReportDialogComponent } from './create-report-dialog/create-report-dialog.component';
+import { EditReportDialogComponent } from './edit-report-dialog/edit-report-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
   public selectedIsDefault: boolean;
   public reportsCreated: any;
   public selectedConfig: any;
+  public selectedReport: any;
 
   @ViewChild(CreateReportDialogComponent) report: any;
 
@@ -49,19 +51,44 @@ export class AppComponent implements OnInit {
     });
 
     createDialog.afterClosed().subscribe(result => {
-      if (result.Name !== undefined) {
+      if (result === undefined) {
+        this.snackBar.open('Report has not been created', '', {
+          duration: 2000,
+        });
+      } else if (result.Name === undefined) {
+        this.snackBar.open('Introuce a name to create a report', '', {
+          duration: 2000,
+        });
+      } else if (result.Name !== undefined) {
         if (this.reportsCreated !== undefined) { // If there are reports already, add a new one
           this.reportsCreated.push(result);
         } else { // Initialize reportsCreated to create first report
           this.reportsCreated = [];
           this.reportsCreated.push(result);
         }
-      } else {
-        this.snackBar.open('Introduce a name', '', {
-          duration: 2000,
-        });
       }
     });
+  }
+
+  /**
+   * Method for editing existing report
+   */
+  public editReport(): void {
+    if (this.selectedReport !== undefined) {
+      const editDialog = this.dialog.open(EditReportDialogComponent, {
+        data: {
+          Name: this.selectedReport.Name, Options: this.selectedReport.Options
+        }
+      });
+
+      editDialog.afterClosed().subscribe(result => {
+        console.log(result);
+      })
+    } else {
+      this.snackBar.open('Select a report first', '', {
+        duration: 2000,
+      });
+    }
   }
 
   /**
@@ -78,5 +105,7 @@ export class AppComponent implements OnInit {
    */
   public selectReport(r): void {
     this.selectedConfig = r.Options;
+    this.selectedReport = r;
+    console.log(this.selectedReport);
   }
 }
