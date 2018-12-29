@@ -16,12 +16,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CreateReportDialogComponent } from './create-report-dialog/create-report-dialog.component';
 import { PivotTableComponent } from './pivot-table/pivot-table.component';
+import { EditReportDialogComponent } from './edit-report-dialog/edit-report-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateReportDialogComponent,
-    PivotTableComponent
+    PivotTableComponent,
+    EditReportDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -40,6 +42,6 @@ import { PivotTableComponent } from './pivot-table/pivot-table.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [CreateReportDialogComponent]
+  entryComponents: [CreateReportDialogComponent, EditReportDialogComponent]
 })
 export class AppModule { }
