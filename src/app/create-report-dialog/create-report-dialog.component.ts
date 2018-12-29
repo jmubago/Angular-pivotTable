@@ -10,9 +10,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class CreateReportDialogComponent implements OnInit {
 
-  titulo = new FormControl('', [Validators.required]);
-  descripcion = new FormControl('', [Validators.required]);
-  visibilidad = new FormControl('', [Validators.required]);
+  // title = new FormControl('', [Validators.required]);
 
   constructor(public dialogRef: MatDialogRef<CreateReportDialogComponent>, @Inject(MAT_DIALOG_DATA) private data: any) { }
 
