@@ -82,7 +82,7 @@ export class PivotTableComponent implements OnInit, AfterViewInit, OnChanges {
 
     this.defaultConfig = {
       renderers: this.renderers,
-      rows: [],
+      rows: ['id'],
       cols: [''],
       rendererName: '',
       rendererOptions: {
