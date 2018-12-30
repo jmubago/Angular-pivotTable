@@ -36,10 +36,6 @@ export class AppComponent implements OnInit {
   * Public Methods
   */
 
-  public changeMode(): void {
-    this.mode = !this.mode;
-  }
-
   /**
    * Method to create a new report
    */
@@ -56,10 +52,10 @@ export class AppComponent implements OnInit {
           duration: 2000,
         });
       } else if (result.Name === undefined) {
-        this.snackBar.open('Introuce a name to create a report', '', {
+        this.snackBar.open('Introduce a name to create a report', '', {
           duration: 2000,
         });
-      } else if (result.Name !== undefined) {
+      } else {
         if (this.reportsCreated !== undefined) { // If there are reports already, add a new one
           this.reportsCreated.push(result);
         } else { // Initialize reportsCreated to create first report
@@ -83,6 +79,18 @@ export class AppComponent implements OnInit {
 
       editDialog.afterClosed().subscribe(result => {
         console.log(result);
+        if (result === undefined) {
+          this.snackBar.open('Report has not been edited', '', {
+            duration: 2000,
+          });
+        } else if (result.Name === undefined || result.Name === "") {
+          this.snackBar.open('Introduce a name to edit the report', '', {
+            duration: 2000,
+          });
+        } else {
+          this.selectedReport.Name = result.Name;
+          this.selectedReport.Options =  this.newConfig;
+        }
       })
     } else {
       this.snackBar.open('Select a report first', '', {
@@ -106,6 +114,5 @@ export class AppComponent implements OnInit {
   public selectReport(r): void {
     this.selectedConfig = r.Options;
     this.selectedReport = r;
-    console.log(this.selectedReport);
   }
 }
