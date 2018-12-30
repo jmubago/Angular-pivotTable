@@ -78,7 +78,6 @@ export class AppComponent implements OnInit {
       });
 
       editDialog.afterClosed().subscribe(result => {
-        console.log(result);
         if (result === undefined) {
           this.snackBar.open('Report has not been edited', '', {
             duration: 2000,
@@ -89,7 +88,7 @@ export class AppComponent implements OnInit {
           });
         } else {
           this.selectedReport.Name = result.Name;
-          this.selectedReport.Options =  this.newConfig;
+          this.selectedReport.Options = this.newConfig;
         }
       })
     } else {
