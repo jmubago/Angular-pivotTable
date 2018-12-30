@@ -11,7 +11,7 @@ import { MatIconModule,
   MatCheckboxModule,
   MatDialogModule,
   MatSnackBarModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CreateReportDialogComponent } from './create-report-dialog/create-report-dialog.component';
@@ -29,6 +29,7 @@ import { EditReportDialogComponent } from './edit-report-dialog/edit-report-dial
     BrowserAnimationsModule,
     MatButtonModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     MatIconModule,
     MatToolbarModule,
