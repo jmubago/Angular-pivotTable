@@ -3,9 +3,6 @@
   </button>
   <button mat-raised-button color="primary" style="margin: 8px" (click)="editReport()">Edit report
   </button>
-  <button mat-raised-button color="primary" style="margin: 8px" (click)="changeMode()">
-    Show
-  </button>
 </div>
 <div *ngIf="reportsCreated" fxLayout="row" >
   <div *ngFor="let report of reportsCreated">
