@@ -1,15 +1,15 @@
 <mat-toolbar class="mat-accent m-0">
   <mat-toolbar-row>
-    <span class="title dialog-title">Crear un nuevo informe</span>
+    <span class="title dialog-title">Create a new report</span>
   </mat-toolbar-row>
 </mat-toolbar>
 <div mat-dialog-content class="report">
   <mat-form-field>
     <input matInput placeholder="Report title" [(ngModel)]="data.Name" required>
-    <!-- <mat-error *ngIf="title.hasError('required')">Write a title</mat-error> -->
+    <mat-error *ngIf="title.hasError('required')">Write a title</mat-error>
   </mat-form-field>
 </div>
 <div mat-dialog-actions class="m-0 p-16">
-  <button mat-button mat-dialog-close color="accent" [mat-dialog-close]="data" cdkFocusInitial>Guardar</button>
-  <button mat-button mat-dialog-close (click)="onCloseClick()">Cerrar</button>
+  <button mat-button mat-dialog-close color="accent" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+  <button mat-button mat-dialog-close (click)="onCloseClick()">Close</button>
 </div>
