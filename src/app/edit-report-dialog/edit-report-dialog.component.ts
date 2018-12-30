@@ -13,9 +13,7 @@ export class EditReportDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<EditReportDialogComponent>, @Inject(MAT_DIALOG_DATA) private data: any) { }
 
-  ngOnInit() {
-    console.log(this.data);
-  }
+  ngOnInit() { }
 
   /**
    * Method for closing the dialog
